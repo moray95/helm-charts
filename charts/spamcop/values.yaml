@@ -1,0 +1,16 @@
+image:
+  repository: moray95/spamcop
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Spamcop username
+# username:
+# Spamcop password
+# password:
+
+# Schedule to run the cronjob
+schedule: "*/30 * * * *"

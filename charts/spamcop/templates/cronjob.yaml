@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "spamcop.fullname" . }}
+  labels:
+    {{- include "spamcop.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.schedule | quote }}
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: spamcop
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+            envFrom:
+              - secretRef:
+                  name: {{ include "spamcop.fullname" . }}-credentials
+          restartPolicy: OnFailure
