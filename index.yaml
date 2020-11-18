@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  spamcop:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-11-18T11:58:35.239169586Z"
+    description: Automatic approval of Spamcop reports
+    digest: ddd763102c5b54d770ca262dfac3ba1fcbc5cf60219c3099912985364c682fc8
+    name: spamcop
+    type: application
+    urls:
+    - https://github.com/moray95/helm-charts/releases/download/spamcop-0.0.1/spamcop-0.0.1.tgz
+    version: 0.0.1
+generated: "2020-11-18T11:58:34.807916084Z"
