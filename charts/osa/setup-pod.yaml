@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  generateName: osa-setup-
+spec:
+  containers:
+  - name: osa
+    image: moray95/osa:0.1.0
+    command:
+      - sh
+      - -c
+      - while true; do sleep 1000; done
+    env:
+      - name: DATABASE
+        value: /db/osa.db
+    volumeMounts:
+      - mountPath: /db
+        name: database
+  volumes:
+    - name: database
+      persistentVolumeClaim:
+        claimName: osa-database

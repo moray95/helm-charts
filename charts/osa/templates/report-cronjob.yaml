@@ -1,0 +1,29 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "osa.fullname" . }}-scan-report
+  labels:
+    {{- include "osa.labels" . | nindent 4 }}
+spec:
+  schedule: "*/15 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: osa
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+            env:
+              - name: DATABASE
+                value: /db/osa.db
+            volumeMounts:
+              - mountPath: /db
+                name: database
+            args:
+              - scan-report
+          volumes:
+            - name: database
+              persistentVolumeClaim:
+                claimName: {{ include "osa.fullname" . }}-database
