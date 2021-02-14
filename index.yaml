@@ -3,6 +3,16 @@ entries:
   osa:
   - apiVersion: v2
     appVersion: 0.2.0
+    created: "2021-02-14T16:51:54.596541164Z"
+    description: Outlook Spam Automator
+    digest: aa40e84ad8be97e81021a8353d1ec98fa0a6236a871fc225d377a02620f6d097
+    name: osa
+    type: application
+    urls:
+    - https://github.com/moray95/helm-charts/releases/download/osa-0.0.6/osa-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v2
+    appVersion: 0.2.0
     created: "2021-02-14T16:43:16.680181357Z"
     description: Outlook Spam Automator
     digest: 661c0b464a86526a1c459d3b3952a6bfc2351ed907fef2802c120b2ef56f05ab
