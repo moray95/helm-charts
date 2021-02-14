@@ -1,0 +1,18 @@
+{{- if .Values.dashboard.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "osa.fullname" . }}-dashboard
+  labels:
+    {{- include "osa.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.dashboard.service.type }}
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+     {{- include "osa.labels" . | nindent 5 }}
+     app: {{ include "osa.fullname" . }}-dashboard
+{{- end }}

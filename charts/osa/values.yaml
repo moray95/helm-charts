@@ -11,6 +11,12 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
+dashboard:
+  enabled: true
+  replicas: 1
+  service:
+    type: ClusterIP
+
 persistence:
   storage: 1Gi
   className: 'hdd'

@@ -1,0 +1,43 @@
+{{- if .Values.dashboard.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "osa.fullname" . }}-dashboard
+  labels:
+    {{- include "osa.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "osa.labels" . | nindent 6 }}
+      app: {{ include "osa.fullname" . }}-dashboard
+  replicas: {{ .Values.dashboard.replicas }}
+  template:
+    metadata:
+      labels:
+        {{- include "osa.labels" . | nindent 8 }}
+        app: {{ include "osa.fullname" . }}-dashboard
+    spec:
+      volumes:
+        - name: database
+          persistentVolumeClaim:
+            claimName: {{ include "osa.fullname" . }}-database
+      containers:
+      - name: osa
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        ports:
+          - containerPort: 8080
+        args:
+          - dashboard
+        env:
+          - name: DATABASE
+            value: /db/osa.db
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+        volumeMounts:
+          - mountPath: /db
+            name: database
+{{- end }}
