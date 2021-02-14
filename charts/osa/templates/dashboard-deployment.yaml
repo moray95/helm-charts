@@ -31,6 +31,8 @@ spec:
         env:
           - name: DATABASE
             value: /db/osa.db
+          - name: APP_ENV
+            value: production
         livenessProbe:
           tcpSocket:
             port: 8080
