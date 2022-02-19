@@ -3,6 +3,16 @@ entries:
   osa:
   - apiVersion: v2
     appVersion: 0.2.0
+    created: "2022-02-19T11:52:58.872172999Z"
+    description: Outlook Spam Automator
+    digest: 76fbece09131a1a57cc313b0b49b9457a365775618b9f9ecd4501c7ec5539f9b
+    name: osa
+    type: application
+    urls:
+    - https://github.com/moray95/helm-charts/releases/download/osa-0.0.8/osa-0.0.8.tgz
+    version: 0.0.8
+  - apiVersion: v2
+    appVersion: 0.2.0
     created: "2021-02-14T16:51:54.596541164Z"
     description: Outlook Spam Automator
     digest: aa40e84ad8be97e81021a8353d1ec98fa0a6236a871fc225d377a02620f6d097
@@ -64,6 +74,16 @@ entries:
   spamcop:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-02-19T11:52:59.024000359Z"
+    description: Automatic approval of Spamcop reports
+    digest: a0396672811b3191eaf6d670c29f70377c19fcbda7ef51d3749e0b10093754a2
+    name: spamcop
+    type: application
+    urls:
+    - https://github.com/moray95/helm-charts/releases/download/spamcop-0.0.3/spamcop-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2020-11-18T11:58:35.239169586Z"
     description: Automatic approval of Spamcop reports
     digest: ddd763102c5b54d770ca262dfac3ba1fcbc5cf60219c3099912985364c682fc8
@@ -72,4 +92,4 @@ entries:
     urls:
     - https://github.com/moray95/helm-charts/releases/download/spamcop-0.0.1/spamcop-0.0.1.tgz
     version: 0.0.1
-generated: "2020-11-18T11:58:34.807916084Z"
+generated: "2022-02-19T11:52:59.024425065Z"
