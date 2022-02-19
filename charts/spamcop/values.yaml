@@ -14,3 +14,4 @@ fullnameOverride: ""
 
 # Schedule to run the cronjob
 schedule: "*/30 * * * *"
+resources: {}
