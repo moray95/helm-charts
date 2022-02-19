@@ -1,4 +1,4 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: {{ include "osa.fullname" . }}-scan-junk
@@ -23,6 +23,10 @@ spec:
                 name: database
             args:
               - scan-junk
+            {{- with .Values.resources }}
+            resources:
+              {{- . | toYaml | nindent 14 }}
+            {{- end }}
           volumes:
             - name: database
               persistentVolumeClaim:

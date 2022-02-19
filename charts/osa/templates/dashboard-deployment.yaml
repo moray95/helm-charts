@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      {{- include "osa.labels" . | nindent 6 }}
+      {{- include "osa.selectorLabels" . | nindent 6 }}
       app: {{ include "osa.fullname" . }}-dashboard
   replicas: {{ .Values.dashboard.replicas }}
   template:
@@ -39,6 +39,10 @@ spec:
         readinessProbe:
           tcpSocket:
             port: 8080
+        {{- with .Values.resources }}
+        resources:
+          {{- . | toYaml | nindent 10 }}
+        {{- end }}
         volumeMounts:
           - mountPath: /db
             name: database

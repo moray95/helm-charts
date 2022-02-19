@@ -13,6 +13,6 @@ spec:
     protocol: TCP
     name: http
   selector:
-     {{- include "osa.labels" . | nindent 5 }}
-     app: {{ include "osa.fullname" . }}-dashboard
+    {{- include "osa.selectorLabels" . | nindent 4 }}
+    app: {{ include "osa.fullname" . }}-dashboard
 {{- end }}
